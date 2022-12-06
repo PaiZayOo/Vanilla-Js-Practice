@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul li{
+    list-style-type: none;
+}
+ul li a{
+    text-decoration: none;
+}
+nav{
+    background-color: bisque;
+    height: 50px;
+    align-items: center;
+}
+.nav-center{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-links li{
+    margin-right: 10px;
+}
+.container{
+    text-align: center;
+    margin-top: 200px;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 100px;
+    height: 20px;
+}
