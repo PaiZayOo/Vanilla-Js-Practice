@@ -28,12 +28,24 @@ nav{
     margin-right: 10px;
 }
 .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container h2{
     text-align: center;
-    margin-top: 200px;
+    width: 500px;
+    height: 70px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
 }
 
 .btn{
     margin-top: 20px;
     width: 100px;
     height: 20px;
+    margin-left: 200px;
 }
