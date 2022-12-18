@@ -61,29 +61,62 @@ function addItem(e){
         // addToLocalStorage();
     }
     else if(value && editFlag){
-        console.log('this is editing');
+        editElement.innerHTML = value;
+        showAlert('value changed','success');
+        backtoDefault();
     }
     else{
         showAlert('Please Enter the Value','danger');
     }
 }
 
+//clear items
 function clearItems(){
     const items = document.querySelectorAll('.grocery-item');
-    console.log(items);
+    if(items.length > 0){
+        items.forEach(function(item){
+            list.removeChild(item);
+        })
+    }
+    container.classList.remove('show-container');
+    showAlert('empty list','danger');
+    backtoDefault();
+    
 }
 
-function editItem(){
+function editItem(e){
+    const element = e.currentTarget.parentElement.parentElement;
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+    grocery.value  = editElement.innerHTML;
+    editFlag = true;
+    editId = element.dataset.id;
+
+    submitBtn.textContent = 'edit';
+
 
 }
 
-function deleteItem(){
+function deleteItem(e){
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
+    list.removeChild(element);
 
+    if(list.children.length === 0){
+        container.classList.remove('show-container');
+    }
+
+    showAlert('remove item' , 'danger');
+    backtoDefault();
 }
 
 function showAlert(message,action){
     alert.textContent = message;
     alert.classList.add(`alert-${action}`);
+    //remove alert
+    setTimeout(function(){
+        alert.textContent = '';
+        alert.classList.remove(`alert-${action}`);
+    },1000)
 
 }
 
@@ -93,10 +126,3 @@ function backtoDefault(){
     editId = '';
     submitBtn.textContent = 'submit';
 }
-
-function addToLocalStorage(){
-
-}
-// ****** LOCAL STORAGE **********
-
-// ****** SETUP ITEMS **********
